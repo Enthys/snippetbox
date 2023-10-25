@@ -1,0 +1,19 @@
+version: "3"
+
+volumes:
+  storage:
+
+services:
+  database:
+    image: mysql:8
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin_password
+      MYSQL_ROOT_PASSWORD: root_password
+    volumes:
+      - storage:/var/lib/mysql
+    ports:
+      - "3306:3306"
+      
